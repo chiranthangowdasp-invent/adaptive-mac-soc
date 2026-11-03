@@ -1,7 +1,7 @@
 module adaptive_mac_top #(
-  parameter int DATA_W = 8,
-  parameter int ACC_W  = 24,
-  parameter int CNT_W  = 16
+  parameter int DATA_W = adaptive_pkg::DATA_W,
+  parameter int ACC_W  = adaptive_pkg::ACC_W,
+  parameter int CNT_W  = adaptive_pkg::CNT_W
 ) (
   input  logic               clk,
   input  logic               rst_n,
