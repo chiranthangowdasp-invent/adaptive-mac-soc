@@ -3,3 +3,4 @@ sim.out
 *.vvp
 obj_dir/
 results/tmp/
+*.out

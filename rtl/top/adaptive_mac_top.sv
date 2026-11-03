@@ -33,10 +33,19 @@ module adaptive_mac_top #(
 
   mode_e mode_q;
 
-  // Stub behaviour: real logic arrives in Steps 2-4
-  assign in_ready          = 1'b1;
-  assign out_valid         = 1'b0;
-  assign out_result        = '0;
+  mac_pipe #(.DATA_W(DATA_W), .ACC_W(ACC_W)) u_mac (
+    .clk       (clk),
+    .rst_n     (rst_n),
+    .in_valid  (in_valid),
+    .in_ready  (in_ready),
+    .in_a      (in_a),
+    .in_b      (in_b),
+    .in_clear  (in_clear),
+    .out_valid (out_valid),
+    .out_result(out_result)
+  );
+
+  // Still stubs: controller arrives in Steps 3-4
   assign stat_err_count    = '0;
   assign stat_replay_count = '0;
   assign stat_mode         = mode_q;

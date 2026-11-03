@@ -18,3 +18,7 @@ wave:
 
 clean:
 > rm -f sim.out dump.vcd
+
+sim_mac:
+> iverilog -g2012 -o sim_mac.out -s tb_mac_pipe $(RTL) tb/basic/tb_mac_pipe.sv
+> vvp sim_mac.out
