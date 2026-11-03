@@ -1,0 +1,5 @@
+sim.out
+*.vcd
+*.vvp
+obj_dir/
+results/tmp/
