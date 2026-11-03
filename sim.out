@@ -1,0 +1,181 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2009.vpi";
+S_0x6490b192d160 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_0x6490b192d2f0 .scope package, "adaptive_pkg" "adaptive_pkg" 3 1;
+ .timescale 0 0;
+P_0x6490b1926b50 .param/l "ACC_W" 1 3 3, +C4<00000000000000000000000000011000>;
+P_0x6490b1926b90 .param/l "CNT_W" 1 3 4, +C4<00000000000000000000000000010000>;
+P_0x6490b1926bd0 .param/l "DATA_W" 1 3 2, +C4<00000000000000000000000000001000>;
+enum0x6490b1912750 .enum4 (3)
+   "MODE_NORMAL" 3'b000,
+   "MODE_MONITOR" 3'b001,
+   "MODE_THROTTLE" 3'b010,
+   "MODE_RECOVER" 3'b011,
+   "MODE_LOW_POWER" 3'b100
+ ;
+S_0x6490b1926d10 .scope module, "tb_top_smoke" "tb_top_smoke" 4 1;
+ .timescale 0 0;
+v0x6490b195ab60_0 .var "cfg_err_thresh", 15 0;
+v0x6490b195ac40_0 .var "cfg_force_en", 0 0;
+v0x6490b195ad10_0 .var "cfg_force_mode", 2 0;
+v0x6490b195ae10_0 .var "cfg_window", 15 0;
+v0x6490b195aee0_0 .var "clk", 0 0;
+v0x6490b195af80_0 .var "ext_err_in", 0 0;
+v0x6490b195b050_0 .var "in_a", 7 0;
+v0x6490b195b120_0 .var "in_b", 7 0;
+v0x6490b195b1f0_0 .var "in_clear", 0 0;
+L_0x75146dc60018 .functor BUFT 1, C4<1>, C4<0>, C4<0>, C4<0>;
+v0x6490b195b2c0_0 .net "in_ready", 0 0, L_0x75146dc60018;  1 drivers
+v0x6490b195b390_0 .var "in_valid", 0 0;
+L_0x75146dc600a8 .functor BUFT 1, C4<000000000000000000000000>, C4<0>, C4<0>, C4<0>;
+v0x6490b195b460_0 .net "out_result", 23 0, L_0x75146dc600a8;  1 drivers
+L_0x75146dc60060 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0x6490b195b530_0 .net "out_valid", 0 0, L_0x75146dc60060;  1 drivers
+v0x6490b195b600_0 .var "rst_n", 0 0;
+L_0x75146dc600f0 .functor BUFT 1, C4<0000000000000000>, C4<0>, C4<0>, C4<0>;
+v0x6490b195b6d0_0 .net "stat_err_count", 15 0, L_0x75146dc600f0;  1 drivers
+v0x6490b195b7a0_0 .net "stat_mode", 2 0, L_0x6490b196bae0;  1 drivers
+L_0x75146dc60138 .functor BUFT 1, C4<0000000000000000>, C4<0>, C4<0>, C4<0>;
+v0x6490b195b870_0 .net "stat_replay_count", 15 0, L_0x75146dc60138;  1 drivers
+E_0x6490b19284a0 .event posedge, v0x6490b1959d90_0;
+S_0x6490b193ab40 .scope module, "dut" "adaptive_mac_top" 4 14, 5 1 0, S_0x6490b1926d10;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 1 "rst_n";
+    .port_info 2 /INPUT 1 "in_valid";
+    .port_info 3 /OUTPUT 1 "in_ready";
+    .port_info 4 /INPUT 8 "in_a";
+    .port_info 5 /INPUT 8 "in_b";
+    .port_info 6 /INPUT 1 "in_clear";
+    .port_info 7 /OUTPUT 1 "out_valid";
+    .port_info 8 /OUTPUT 24 "out_result";
+    .port_info 9 /INPUT 16 "cfg_err_thresh";
+    .port_info 10 /INPUT 16 "cfg_window";
+    .port_info 11 /INPUT 1 "cfg_force_en";
+    .port_info 12 /INPUT 3 "cfg_force_mode";
+    .port_info 13 /OUTPUT 3 "stat_mode";
+    .port_info 14 /OUTPUT 16 "stat_err_count";
+    .port_info 15 /OUTPUT 16 "stat_replay_count";
+    .port_info 16 /INPUT 1 "ext_err_in";
+P_0x6490b1926ea0 .param/l "ACC_W" 0 5 3, +C4<00000000000000000000000000011000>;
+P_0x6490b1926ee0 .param/l "CNT_W" 0 5 4, +C4<00000000000000000000000000010000>;
+P_0x6490b1926f20 .param/l "DATA_W" 0 5 2, +C4<00000000000000000000000000001000>;
+L_0x6490b196bae0 .functor BUFZ 3, v0x6490b195a360_0, C4<000>, C4<000>, C4<000>;
+v0x6490b192d480_0 .net "cfg_err_thresh", 15 0, v0x6490b195ab60_0;  1 drivers
+v0x6490b1959b30_0 .net "cfg_force_en", 0 0, v0x6490b195ac40_0;  1 drivers
+v0x6490b1959bf0_0 .net "cfg_force_mode", 2 0, v0x6490b195ad10_0;  1 drivers
+v0x6490b1959cb0_0 .net "cfg_window", 15 0, v0x6490b195ae10_0;  1 drivers
+v0x6490b1959d90_0 .net "clk", 0 0, v0x6490b195aee0_0;  1 drivers
+v0x6490b1959ea0_0 .net "ext_err_in", 0 0, v0x6490b195af80_0;  1 drivers
+v0x6490b1959f60_0 .net "in_a", 7 0, v0x6490b195b050_0;  1 drivers
+v0x6490b195a040_0 .net "in_b", 7 0, v0x6490b195b120_0;  1 drivers
+v0x6490b195a120_0 .net "in_clear", 0 0, v0x6490b195b1f0_0;  1 drivers
+v0x6490b195a1e0_0 .net "in_ready", 0 0, L_0x75146dc60018;  alias, 1 drivers
+v0x6490b195a2a0_0 .net "in_valid", 0 0, v0x6490b195b390_0;  1 drivers
+v0x6490b195a360_0 .var "mode_q", 2 0;
+v0x6490b195a440_0 .net "out_result", 23 0, L_0x75146dc600a8;  alias, 1 drivers
+v0x6490b195a520_0 .net "out_valid", 0 0, L_0x75146dc60060;  alias, 1 drivers
+v0x6490b195a5e0_0 .net "rst_n", 0 0, v0x6490b195b600_0;  1 drivers
+v0x6490b195a6a0_0 .net "stat_err_count", 15 0, L_0x75146dc600f0;  alias, 1 drivers
+v0x6490b195a780_0 .net "stat_mode", 2 0, L_0x6490b196bae0;  alias, 1 drivers
+v0x6490b195a860_0 .net "stat_replay_count", 15 0, L_0x75146dc60138;  alias, 1 drivers
+E_0x6490b1928a10/0 .event negedge, v0x6490b195a5e0_0;
+E_0x6490b1928a10/1 .event posedge, v0x6490b1959d90_0;
+E_0x6490b1928a10 .event/or E_0x6490b1928a10/0, E_0x6490b1928a10/1;
+    .scope S_0x6490b193ab40;
+T_0 ;
+    %wait E_0x6490b1928a10;
+    %load/vec4 v0x6490b195a5e0_0;
+    %nor/r;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.0, 8;
+    %pushi/vec4 0, 0, 3;
+    %assign/vec4 v0x6490b195a360_0, 0;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/vec4 v0x6490b195a360_0;
+    %assign/vec4 v0x6490b195a360_0, 0;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_0x6490b1926d10;
+T_1 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x6490b195aee0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x6490b195b600_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x6490b195b390_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x6490b195b1f0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x6490b195af80_0, 0, 1;
+    %pushi/vec4 0, 0, 8;
+    %store/vec4 v0x6490b195b050_0, 0, 8;
+    %pushi/vec4 0, 0, 8;
+    %store/vec4 v0x6490b195b120_0, 0, 8;
+    %pushi/vec4 4, 0, 16;
+    %store/vec4 v0x6490b195ab60_0, 0, 16;
+    %pushi/vec4 256, 0, 16;
+    %store/vec4 v0x6490b195ae10_0, 0, 16;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x6490b195ac40_0, 0, 1;
+    %pushi/vec4 0, 0, 3;
+    %store/vec4 v0x6490b195ad10_0, 0, 3;
+    %end;
+    .thread T_1, $init;
+    .scope S_0x6490b1926d10;
+T_2 ;
+    %delay 5, 0;
+    %load/vec4 v0x6490b195aee0_0;
+    %inv;
+    %store/vec4 v0x6490b195aee0_0, 0, 1;
+    %jmp T_2;
+    .thread T_2;
+    .scope S_0x6490b1926d10;
+T_3 ;
+    %vpi_call/w 4 19 "$dumpfile", "dump.vcd" {0 0 0};
+    %vpi_call/w 4 20 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x6490b1926d10 {0 0 0};
+    %delay 22, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x6490b195b600_0, 0, 1;
+    %pushi/vec4 3, 0, 32;
+T_3.0 %dup/vec4;
+    %pushi/vec4 0, 0, 32;
+    %cmp/s;
+    %jmp/1xz T_3.1, 5;
+    %jmp/1 T_3.1, 4;
+    %pushi/vec4 1, 0, 32;
+    %sub;
+    %wait E_0x6490b19284a0;
+    %jmp T_3.0;
+T_3.1 ;
+    %pop/vec4 1;
+    %load/vec4 v0x6490b195b7a0_0;
+    %cmpi/e 0, 0, 3;
+    %jmp/0xz  T_3.2, 6;
+    %vpi_call/w 4 23 "$display", "PASS: top skeleton resets to NORMAL" {0 0 0};
+    %jmp T_3.3;
+T_3.2 ;
+    %vpi_call/w 4 24 "$error", "FAIL: stat_mode=%0d", v0x6490b195b7a0_0 {0 0 0};
+T_3.3 ;
+    %vpi_call/w 4 25 "$finish" {0 0 0};
+    %end;
+    .thread T_3;
+# The file index is used to find the file name in the following table.
+:file_names 6;
+    "N/A";
+    "<interactive>";
+    "-";
+    "rtl/common/adaptive_pkg.sv";
+    "tb/basic/tb_top_smoke.sv";
+    "rtl/top/adaptive_mac_top.sv";
