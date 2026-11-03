@@ -39,3 +39,11 @@ wave_demo:
 sim_razor:
 > iverilog -g2012 -o sim_razor.out -s tb_razor_demo $(RTL) tb/basic/tb_razor_demo.sv
 > vvp sim_razor.out
+
+sim_razor_mac:
+> iverilog -g2012 -o sim_razor_mac.out -s tb_mac_razor_demo $(RTL) tb/basic/tb_mac_razor_demo.sv
+> vvp sim_razor_mac.out
+
+lint_razor:
+> verilator --lint-only -Wall -Wno-DECLFILENAME -Wno-UNUSEDSIGNAL \
+>   --top-module mac_pipe_razor $(RTL)
