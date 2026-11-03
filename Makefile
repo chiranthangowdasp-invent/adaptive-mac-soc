@@ -55,3 +55,11 @@ sim_rc:
 lint_rc:
 > verilator --lint-only -Wall -Wno-DECLFILENAME -Wno-UNUSEDSIGNAL \
 >   --top-module mac_pipe_rc $(RTL)
+
+sim_ctrl:
+> iverilog -g2012 -o sim_ctrl.out -s tb_ctrl_demo $(RTL) tb/basic/tb_ctrl_demo.sv
+> vvp sim_ctrl.out
+
+lint_ctrl:
+> verilator --lint-only -Wall -Wno-DECLFILENAME -Wno-UNUSEDSIGNAL \
+>   --top-module adaptive_ctrl $(RTL)
