@@ -1,0 +1,53 @@
+[*]
+[*] GTKWave Analyzer v3.3.126 (w)1999-2026 BSI
+[*] Tue Nov  3 06:11:49 2026
+[*]
+[dumpfile] "/home/chiru/adaptive_soc/dump_demo.vcd"
+[dumpfile_mtime] "Tue Nov  3 05:59:43 2026"
+[dumpfile_size] 1747
+[savefile] "/home/chiru/adaptive_soc/mac_demo.gtkw"
+[timestart] 0
+[size] 1920 1033
+[pos] -1 -1
+*-3.949428 27 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb_mac_demo.
+[sst_width] 297
+[signals_width] 216
+[sst_expanded] 1
+[sst_vpaned_height] 308
+@420
+tb_mac_demo.dut.ACC_W
+tb_mac_demo.dut.DATA_W
+tb_mac_demo.dut.PROD_W
+@22
+tb_mac_demo.dut.acc_base[23:0]
+tb_mac_demo.dut.acc_q[23:0]
+@28
+tb_mac_demo.dut.clk
+@22
+tb_mac_demo.dut.in_a[7:0]
+tb_mac_demo.dut.in_b[7:0]
+@28
+tb_mac_demo.dut.in_clear
+tb_mac_demo.dut.in_ready
+tb_mac_demo.dut.in_valid
+@22
+tb_mac_demo.dut.out_result[23:0]
+@28
+tb_mac_demo.dut.out_valid
+tb_mac_demo.dut.rst_n
+@22
+tb_mac_demo.dut.s1_a[7:0]
+tb_mac_demo.dut.s1_b[7:0]
+@28
+tb_mac_demo.dut.s1_clr
+tb_mac_demo.dut.s1_valid
+tb_mac_demo.dut.s2_clr
+@22
+tb_mac_demo.dut.s2_prod[15:0]
+@28
+tb_mac_demo.dut.s2_valid
+@22
+tb_mac_demo.dut.sum[24:0]
+[pattern_trace] 1
+[pattern_trace] 0

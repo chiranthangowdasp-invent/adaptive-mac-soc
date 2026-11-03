@@ -28,3 +28,14 @@ save:
 > git add -A
 > git commit -m "$(MSG)" || true
 > git push
+
+sim_demo:
+> iverilog -g2012 -o sim_demo.out -s tb_mac_demo $(RTL) tb/basic/tb_mac_demo.sv
+> vvp sim_demo.out
+
+wave_demo:
+> gtkwave dump_demo.vcd $(wildcard mac_demo.gtkw) &
+
+sim_razor:
+> iverilog -g2012 -o sim_razor.out -s tb_razor_demo $(RTL) tb/basic/tb_razor_demo.sv
+> vvp sim_razor.out
