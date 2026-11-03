@@ -47,3 +47,11 @@ sim_razor_mac:
 lint_razor:
 > verilator --lint-only -Wall -Wno-DECLFILENAME -Wno-UNUSEDSIGNAL \
 >   --top-module mac_pipe_razor $(RTL)
+
+sim_rc:
+> iverilog -g2012 -o sim_rc.out -s tb_mac_rc_demo $(RTL) tb/basic/tb_mac_rc_demo.sv
+> vvp sim_rc.out
+
+lint_rc:
+> verilator --lint-only -Wall -Wno-DECLFILENAME -Wno-UNUSEDSIGNAL \
+>   --top-module mac_pipe_rc $(RTL)
